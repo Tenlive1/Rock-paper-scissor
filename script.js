@@ -38,9 +38,30 @@ function round(getplayerchoice,getcomputerchoice){
 
 }
 
-console.log(round(getplayerchoice,getcomputerchoice));
-console.log(round(getplayerchoice,getcomputerchoice));
-console.log(round(getplayerchoice,getcomputerchoice));
-console.log(round(getplayerchoice,getcomputerchoice));
-console.log(round(getplayerchoice,getcomputerchoice));
+function game(){
 
+    let player_score = 0;
+    let computer_score =0;
+
+    while(player_score < 5 && computer_score < 5){
+        let win_lose = round(getplayerchoice,getcomputerchoice);
+        console.log(win_lose);
+        if(win_lose.includes("Win")){
+            player_score++;
+            console.log(player_score + " - " + computer_score);
+        }
+        else if(win_lose.includes("Lose")){
+            computer_score++;
+            console.log(player_score + " - " + computer_score);
+        }
+        
+    }
+    
+    if(player_score >= 5){
+        return "you win"
+    }
+    return "you lost to the computer"
+
+}
+
+console.log(game());
