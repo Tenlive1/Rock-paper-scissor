@@ -39,13 +39,19 @@ function round(getplayerchoice,getcomputerchoice){
 
 }
 
-const btn = document.querySelectorAll('button');
+const btn = document.querySelectorAll('.player-button');
 
 btn.forEach((button) => {
 
     // and for each one we add a 'click' listener
     button.addEventListener('click', () => {
-      alert(button.className);
+        
+        let choice = button.textContent;
+
+        const player = document.querySelector('.player-choice');
+        player.textContent = choice;
+
+
     });
   });
 

@@ -5,7 +5,14 @@
 }
 #button-container {
     display:flex;
-    justify-content: space-between;
+    justify-content: space-around;
+}
+body{
+    margin: 0;
+}
+.player, .computer{
+    display: flex;
+    gap: 16px;
 }
 button{
     background-color: #4CAF50;
@@ -19,6 +26,20 @@ button{
     margin: 4px 2px;
     cursor: pointer;
 }
+
 .scoreboard {
     font-size: 64px;
+}
+
+.choice-container{
+    display: flex;
+    align-items: center;
+    height: 73vh;
+    
+}
+
+.player-choice,.computer-choice{
+    width: 50%;
+    display: flex;
+    justify-content: center;
 }
