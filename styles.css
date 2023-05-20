@@ -9,6 +9,8 @@
 }
 body{
     margin: 0;
+    background-image: radial-gradient(circle,rgb(187, 223, 238),rgb(26, 129, 170));
+    height:100vh;
 }
 .player, .computer{
     display: flex;
