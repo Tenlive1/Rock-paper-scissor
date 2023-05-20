@@ -63,5 +63,3 @@ function game(){
     return "you lost to the computer"
 
 }
-console.log(test);
-console.log(game());
