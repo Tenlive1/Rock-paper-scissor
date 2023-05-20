@@ -1,4 +1,5 @@
 const pick = ["rock","paper","scissor"];
+
 function getcomputerchoice(){
     return pick[Math.floor(Math.random() * 3)];
 }
@@ -38,28 +39,14 @@ function round(getplayerchoice,getcomputerchoice){
 
 }
 
-function game(){
+const btn = document.querySelectorAll('button');
 
-    let player_score = 0;
-    let computer_score =0;
+btn.forEach((button) => {
 
-    while(player_score < 5 && computer_score < 5){
-        let win_lose = round(getplayerchoice,getcomputerchoice);
-        console.log(win_lose);
-        if(win_lose.includes("Win")){
-            player_score++;
-            console.log(player_score + " - " + computer_score);
-        }
-        else if(win_lose.includes("Lose")){
-            computer_score++;
-            console.log(player_score + " - " + computer_score);
-        }
-        
-    }
-    
-    if(player_score >= 5){
-        return "you win"
-    }
-    return "you lost to the computer"
+    // and for each one we add a 'click' listener
+    button.addEventListener('click', () => {
+      alert(button.className);
+    });
+  });
 
-}
+
