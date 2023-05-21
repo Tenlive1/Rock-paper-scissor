@@ -13,15 +13,17 @@ function page(){
     const text = document.createElement('div');
     text.classList.add('texts');
 
-    const again = document.createElement("button");
-    again.classList.add("play-again");
+    const again = document.createElement("input");
+    again.type = "reset";
+    again.onclick = function(){document.location.reload(true);};
+    again.value = "PLAY AGAIN?"
     again.textContent = "PLAY AGAIN?";
 
     content.appendChild(text);
     content.appendChild(again);
-    //document.body.appendChild(content);
     
 }
+
 
 function round(playerchoice,computerchoice){
     let player = playerchoice;
@@ -40,13 +42,13 @@ function round(playerchoice,computerchoice){
 
     if(playerscore.textContent == 5){
         page();
-        const win = document.querySelector('.container');
-        //win.textContent = "you win";
+        const win = document.querySelector('.texts');
+        win.textContent = "you win";
     }
     else if(computerscore.textContent == 5){   
         page();
-        const lose = document.querySelector('.container');
-        //lose.textContent = "you lose";
+        const lose = document.querySelector('.texts');
+        lose.textContent = "you lose";
     }
 
 }
@@ -72,4 +74,4 @@ btn.forEach((button) => {
      
   });
 
-
+const res = document.body.innerHTML;
