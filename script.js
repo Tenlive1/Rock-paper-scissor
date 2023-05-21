@@ -1,40 +1,31 @@
 const pick = ["rock","paper","scissor"];
-
+const begining = document.querySelector('body');
 function getcomputerchoice(){
     return pick[Math.floor(Math.random() * 3)];
 }
 
-function getplayerchoice(){
 
-    let player = window.prompt("Please pick Rock, Paper or scissor").toLowerCase();
 
-    if(player == pick[0] || player == pick[1] || player ==  pick[2]){
-        return player;
-    }
-
-    while(true){
-        let again = window.prompt("choice does not exist Please pick rock or paper or scissor").toLowerCase();
-
-        if(again == pick[0] || again == pick[1] || again ==  pick[2]){
-            return again
-        }
-    }
-
+function round(playerchoice,computerchoice){
+    let player = playerchoice;
+    let computer = computerchoice;
     
-}
-
-function round(getplayerchoice,getcomputerchoice){
-    let player = getplayerchoice();
-    let computer = getcomputerchoice();
-
+    const playerscore = document.querySelector('#player-score'); 
+    const computerscore = document.querySelector('#computer-score'); 
     if (player == computer){
-        return "Draw";
     }
     else if(player == pick[0] && computer == pick[2] || player == pick[1] && computer == pick[0] || player == pick[2] && computer == pick[1]){
-        return "You Win! " + player + " beats " + computer;
+        playerscore.textContent++;
     }
-    else{
-        return "You Lose! " + player + " beats " + computer;
+    else{ 
+        computerscore.textContent++;
+    }
+
+    if(playerscore.textContent == 5){
+        window.location.assign("newindex.html");
+    }
+    else if(computerscore.textContent == 5){   
+        window.location.assign("newindex.html");
     }
 
 }
@@ -47,12 +38,17 @@ btn.forEach((button) => {
     button.addEventListener('click', () => {
         
         let choice = button.textContent;
+        let computerchoice = getcomputerchoice();
+        round(choice.toLowerCase(),computerchoice);
 
         const player = document.querySelector('.player-choice');
+        const computer = document.querySelector('.computer-choice');
         player.textContent = choice;
+        computer.textContent = computerchoice.toUpperCase();
 
 
     });
+     
   });
 
 
