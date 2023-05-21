@@ -4,7 +4,7 @@ function getcomputerchoice(){
     return pick[Math.floor(Math.random() * 3)];
 }
 
-function page(){
+function page(){ // this will delete the current page and make a new page
     document.body.innerHTML = "";
     const content = document.createElement('div');
     content.classList.add('container');
@@ -17,22 +17,22 @@ function page(){
     again.classList.add("again");
     again.textContent = "PLAY AGAIN?";
 
-    again.addEventListener('click',() =>{
+    again.addEventListener('click',() =>{ // once user click play again it will restore the beginning page and also make the button clickable
         document.body.innerHTML = res;
         const btns = document.querySelectorAll('.player-button');
 
-        btns.forEach((button) => {
+        btns.forEach((button) => { // for each button listen to a click if there's a click do the function
             
 
             button.addEventListener('click', () => {
                 
                 let choice = button.textContent;
-                let computerchoice = getcomputerchoice();
+                let computerchoice = getcomputerchoice();// getting the computer decision
                 
-                let test = round(choice.toLowerCase(),computerchoice)
+                let gameon = round(choice.toLowerCase(),computerchoice); // to tell me if the game is still being play
 
-                if(test){
-                    const player = document.querySelector('.player-choice');
+                if(gameon){
+                    const player = document.querySelector('.player-choice'); // picking the player choice
                     const computer = document.querySelector('.computer-choice');
                     player.textContent = choice;
                     
@@ -46,14 +46,14 @@ function page(){
         });
 
     });
-
+    // this is just adding to the new page
     content.appendChild(text);
     content.appendChild(again);
     
 }
 
 
-function round(playerchoice,computerchoice){
+function round(playerchoice,computerchoice){// this is where the game will determine who win
     let player = playerchoice;
     let computer = computerchoice;
     
@@ -68,7 +68,7 @@ function round(playerchoice,computerchoice){
         computerscore.textContent++;
     }
 
-    if(playerscore.textContent === "5"){
+    if(playerscore.textContent === "5"){// if they reach 5 the player will be determine if they win or not
         page();
         const win = document.querySelector('.texts');
         win.textContent = "you win";
@@ -94,9 +94,9 @@ btn.forEach((button) => {
         let choice = button.textContent;
         let computerchoice = getcomputerchoice();
         
-        let test = round(choice.toLowerCase(),computerchoice)
+        let gameon = round(choice.toLowerCase(),computerchoice)
 
-        if(test){
+        if(gameon){
             const player = document.querySelector('.player-choice');
             const computer = document.querySelector('.computer-choice');
             player.textContent = choice;
