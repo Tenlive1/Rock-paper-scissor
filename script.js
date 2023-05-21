@@ -111,10 +111,4 @@ btn.forEach((button) => {
   });
 
 
-  /*function load(){
-    var body = document.getElementsByTagName('body')[0];
-    var script = document.createElement('script');
-    script.src = "script.js";
-    body.appendChild(script);
-  }*/
 const res = document.body.innerHTML;
