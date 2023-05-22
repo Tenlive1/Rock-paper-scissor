@@ -46,3 +46,17 @@ button{
     display: flex;
     justify-content: center;
 }
+
+.player-choice img,.computer-choice img{
+    scale: .5;
+    
+}
+div .texts{
+    display: flex;
+    justify-content: center;
+    font-size: 64px;
+}
+.but-container{
+    display: flex;
+    justify-content: center;
+}

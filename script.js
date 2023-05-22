@@ -3,9 +3,22 @@ const begining = document.querySelector('body');
 function getcomputerchoice(){
     return pick[Math.floor(Math.random() * 3)];
 }
+function getpic(choice){
+
+    const pic = document.createElement('img');
+    if(choice == "rock"){
+        pic.src = "picture/T-rock.png";
+    }else if(choice == "paper"){
+        pic.src = "picture/T-paper.png";
+    }else if(choice == "scissor"){
+        pic.src = "picture/T-scissor.png";
+    }
+    return pic;
+}
 
 function page(){ // this will delete the current page and make a new page
     document.body.innerHTML = "";
+    document.body.style = "display: flex; align-items: center; justify-content: center;"
     const content = document.createElement('div');
     content.classList.add('container');
     document.body.appendChild(content);
@@ -13,18 +26,24 @@ function page(){ // this will delete the current page and make a new page
     const text = document.createElement('div');
     text.classList.add('texts');
 
+    const button = document.createElement('div');
+    button.classList.add('but-container');
+
     const again = document.createElement("button");
     again.classList.add("again");
     again.textContent = "PLAY AGAIN?";
 
+    button.appendChild(again);
+
     again.addEventListener('click',() =>{ // once user click play again it will restore the beginning page and also make the button clickable
         document.body.innerHTML = res;
+        document.body.style = "null";
         rps();
 
     });
     // this is just adding to the new page
     content.appendChild(text);
-    content.appendChild(again);
+    content.appendChild(button);
     
 }
 
@@ -78,21 +97,10 @@ const rps = function(){
                 const player = document.querySelector('.player-choice');
                 const computer = document.querySelector('.computer-choice');
                 document.querySelector('.player-choice').innerHTML = "";
+                document.querySelector('.computer-choice').innerHTML = "";
                 //need to make an imagine in js
-                const img = document.createElement('img');
-                if(choice == "rock"){
-                    img.src = "picture/T-rock.png";
-                }else if(choice == "paper"){
-                    img.src = "picture/T-paper.png";
-                }else if(choice == "scissor"){
-                    img.src = "picture/T-scissor.png";
-                }
-
-
-
-                player.append(img);
-                
-                computer.textContent = computerchoice.toUpperCase();
+                player.appendChild(getpic(choice));
+                computer.appendChild(getpic(computerchoice));
             }
             
         }); 
