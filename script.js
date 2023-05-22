@@ -47,13 +47,13 @@ function round(playerchoice,computerchoice){// this is where the game will deter
     if(playerscore.textContent === "5"){// if they reach 5 the player will be determine if they win or not
         page();
         const win = document.querySelector('.texts');
-        win.textContent = "you win";
+        win.textContent = "You Win";
         return false;
     }
     else if(computerscore.textContent === "5"){   
         page();
         const lose = document.querySelector('.texts');
-        lose.textContent = "you lose";
+        lose.textContent = "You Lose";
         return false;
     }
     return true;
@@ -69,7 +69,7 @@ const rps = function(){
 
         button.addEventListener('click', () => {
             
-            let choice = button.getElementsByTagName('img')[0].alt;
+            let choice = button.getElementsByTagName('img')[0].alt.toLocaleLowerCase();
             let computerchoice = getcomputerchoice();
             
             let gameon = round(choice.toLowerCase(),computerchoice)
@@ -77,7 +77,20 @@ const rps = function(){
             if(gameon){
                 const player = document.querySelector('.player-choice');
                 const computer = document.querySelector('.computer-choice');
-                player.textContent = choice;
+                document.querySelector('.player-choice').innerHTML = "";
+                //need to make an imagine in js
+                const img = document.createElement('img');
+                if(choice == "rock"){
+                    img.src = "picture/T-rock.png";
+                }else if(choice == "paper"){
+                    img.src = "picture/T-paper.png";
+                }else if(choice == "scissor"){
+                    img.src = "picture/T-scissor.png";
+                }
+
+
+
+                player.append(img);
                 
                 computer.textContent = computerchoice.toUpperCase();
             }
