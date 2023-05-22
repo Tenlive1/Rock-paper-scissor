@@ -19,31 +19,7 @@ function page(){ // this will delete the current page and make a new page
 
     again.addEventListener('click',() =>{ // once user click play again it will restore the beginning page and also make the button clickable
         document.body.innerHTML = res;
-        const btns = document.querySelectorAll('.player-button');
-
-        btns.forEach((button) => { // for each button listen to a click if there's a click do the function
-            
-
-            button.addEventListener('click', () => {
-                
-                let choice = button.textContent;
-                let computerchoice = getcomputerchoice();// getting the computer decision
-                
-                let gameon = round(choice.toLowerCase(),computerchoice); // to tell me if the game is still being play
-
-                if(gameon){
-                    const player = document.querySelector('.player-choice'); // picking the player choice
-                    const computer = document.querySelector('.computer-choice');
-                    player.textContent = choice;
-                    
-                    computer.textContent = computerchoice.toUpperCase();
-                }
-
-                
-
-            });
-            
-        });
+        rps();
 
     });
     // this is just adding to the new page
@@ -84,32 +60,32 @@ function round(playerchoice,computerchoice){// this is where the game will deter
 
 }
 
-const btn = document.querySelectorAll('.player-button');
+const rps = function(){
 
-btn.forEach((button) => {
-    
+    const btn = document.querySelectorAll('.player-button');
 
-    button.addEventListener('click', () => {
+    btn.forEach((button) => {
         
-        let choice = button.getElementsByTagName('img')[0].alt;
-        let computerchoice = getcomputerchoice();
-        alert(choice);
-        
-        let gameon = round(choice.toLowerCase(),computerchoice)
 
-        if(gameon){
-            const player = document.querySelector('.player-choice');
-            const computer = document.querySelector('.computer-choice');
-            player.textContent = choice;
+        button.addEventListener('click', () => {
             
-            computer.textContent = computerchoice.toUpperCase();
-        }
+            let choice = button.getElementsByTagName('img')[0].alt;
+            let computerchoice = getcomputerchoice();
+            
+            let gameon = round(choice.toLowerCase(),computerchoice)
 
-        
-
+            if(gameon){
+                const player = document.querySelector('.player-choice');
+                const computer = document.querySelector('.computer-choice');
+                player.textContent = choice;
+                
+                computer.textContent = computerchoice.toUpperCase();
+            }
+            
+        }); 
     });
-     
-  });
 
+}; 
 
+rps();
 const res = document.body.innerHTML;
