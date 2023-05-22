@@ -31,6 +31,7 @@ function page(){ // this will delete the current page and make a new page
 
     const again = document.createElement("button");
     again.classList.add("again");
+    again.style.backgroundColor = "orange";
     again.textContent = "PLAY AGAIN?";
 
     button.appendChild(again);
