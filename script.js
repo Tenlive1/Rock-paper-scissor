@@ -91,8 +91,9 @@ btn.forEach((button) => {
 
     button.addEventListener('click', () => {
         
-        let choice = button.textContent;
+        let choice = button.getElementsByTagName('img')[0].alt;
         let computerchoice = getcomputerchoice();
+        alert(choice);
         
         let gameon = round(choice.toLowerCase(),computerchoice)
 
