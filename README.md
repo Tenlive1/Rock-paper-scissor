@@ -10,3 +10,8 @@ what i learn
 it is hard to to make a page that doesn't reload
 
 and when you return the beginning page you need to active everything again....
+
+the art work was hand drawn by me (Perry)
+i thought this style would make people laugh.
+
+
