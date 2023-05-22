@@ -5,7 +5,7 @@
 }
 #button-container {
     display:flex;
-    justify-content: space-around;
+    justify-content: center;
 }
 body{
     margin: 0;
@@ -14,7 +14,7 @@ body{
 }
 .player, .computer{
     display: flex;
-    gap: 16px;
+    gap: 64px;
 }
 button{
     background-color: purple;
@@ -27,6 +27,7 @@ button{
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    
 }
 
 
@@ -62,4 +63,6 @@ div .texts{
 }
 button.player-button:hover{
     box-shadow: 0 1px 20px white;
+    transform: scale(1.05);
+    -webkit-transition: transform 350ms ease-in-out;
 }

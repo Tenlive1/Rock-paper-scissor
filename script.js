@@ -1,4 +1,13 @@
 const pick = ["rock","paper","scissor"];
+const drag = document.querySelectorAll('img');
+
+
+function setatt(drag){
+    for(var x =0; x < drag.length; x++){
+        drag[x].setAttribute('draggable',false);
+    }
+}
+
 const begining = document.querySelector('body');
 function getcomputerchoice(){
     return pick[Math.floor(Math.random() * 3)];
@@ -13,6 +22,7 @@ function getpic(choice){
     }else if(choice == "scissor"){
         pic.src = "picture/T-scissor.png";
     }
+    pic.setAttribute('draggable',false);
     return pic;
 }
 
@@ -110,4 +120,5 @@ const rps = function(){
 }; 
 
 rps();
+setatt(drag);
 const res = document.body.innerHTML;
